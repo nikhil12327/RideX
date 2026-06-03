@@ -1,0 +1,8 @@
+- Use React functional components only
+- Use Tailwind CSS only
+- Use reusable components
+- Mobile-first responsive design
+- Avoid inline styles
+- Use async/await
+- Use clean folder structure
+- Use modern ES6 syntax
