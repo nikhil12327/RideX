@@ -4,8 +4,9 @@ import {
   } from "react";
   import AnalyticsChart
   from "../components/admin/AnalyticsChart";
-  import StatCard from "../components/lovable/StatCard";
-  import Topbar from "../components/lovable/Topbar";
+
+  import { getAuth } from "firebase/auth";
+
   import CustomerList
     from "../components/admin/CustomerList";
   
@@ -40,6 +41,13 @@ import {
   } from "../services/adminRealtimeService";
   
   const AdminDashboard = () => {
+
+    const auth = getAuth();
+
+console.log(
+  "ADMIN AUTH USER:",
+  auth.currentUser
+);
   
     const [stats, setStats] =
       useState(null);
@@ -214,60 +222,107 @@ const exportCSV = () => {
     }
   : null;
        
-    useEffect(() => {
-  
-      const loadData =
-        async () => {
-  
-          try {
-  
-            const [
-                riderData,
-                customerData,
-                reviewData,
-                statsData,
-              ] = await Promise.all([
-              
-                getAllRiders(),
-              
-                getAllCustomers(),
-              
-                getAllReviews(),
-              
-                getDashboardStats(),
-              
-              ]);
-  
-            setRiders(
-              riderData
-            );
-  
-            setCustomers(
-              customerData
-            );
-  
-            setStats(
-              statsData
-            );
+  useEffect(() => {
 
-            setReviews(
-                reviewData
-              );
+    const loadData = async () => {
   
-          } catch (error) {
+      try {
   
-            console.log(
-              "Admin Load Error:",
-              error
-            );
+        const riderData =
+          await getAllRiders();
   
-          }
+        console.log(
+          "RIDERS:",
+          riderData
+        );
   
-        };
+        setRiders(
+          riderData
+        );
   
-      loadData();
+      } catch (error) {
   
-    }, []);
+        console.error(
+          "RIDERS ERROR:",
+          error
+        );
+  
+      }
+  
+      try {
+  
+        const customerData =
+          await getAllCustomers();
+  
+        console.log(
+          "CUSTOMERS:",
+          customerData
+        );
+  
+        setCustomers(
+          customerData
+        );
+  
+      } catch (error) {
+  
+        console.error(
+          "CUSTOMERS ERROR:",
+          error
+        );
+  
+      }
+  
+      try {
+  
+        const reviewData =
+          await getAllReviews();
+  
+        console.log(
+          "REVIEWS:",
+          reviewData
+        );
+  
+        setReviews(
+          reviewData
+        );
+  
+      } catch (error) {
+  
+        console.error(
+          "REVIEWS ERROR:",
+          error
+        );
+  
+      }
+  
+      try {
+  
+        const statsData =
+          await getDashboardStats();
+  
+        console.log(
+          "STATS:",
+          statsData
+        );
+  
+        setStats(
+          statsData
+        );
+  
+      } catch (error) {
+  
+        console.error(
+          "STATS ERROR:",
+          error
+        );
+  
+      }
+  
+    };
+  
+    loadData();
+  
+  }, []);
   
     useEffect(() => {
 
@@ -315,9 +370,11 @@ const exportCSV = () => {
 
     
  
-    if (!stats) {
-        return (
-          <div className="min-h-screen bg-slate-950 text-white p-8">
+  if (!stats) {
+
+    return (
+  
+      <div className="min-h-screen bg-black text-white p-6">
   
         <h1 className="text-4xl font-bold mb-8">
           Admin Dashboard
@@ -345,9 +402,11 @@ const exportCSV = () => {
   
   return (
 
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen bg-black text-white p-6 pb-40">
   
-  <Topbar />
+      <h1 className="text-4xl font-bold mb-8">
+        Admin Dashboard
+      </h1>
   
       <div className="mt-6 mb-6">
   
@@ -360,16 +419,7 @@ const exportCSV = () => {
               e.target.value
             )
           }
-          className="
-w-full
-bg-slate-900
-border
-border-slate-700
-text-white
-p-4
-rounded-xl
-mb-4
-"
+          className="w-full p-3 rounded-xl text-black mb-4"
         />
   
         <div className="flex flex-wrap gap-2">
@@ -406,16 +456,7 @@ mb-4
   
         <button
           onClick={exportCSV}
-          className="
-mt-4
-bg-emerald-500
-hover:bg-emerald-600
-px-5
-py-3
-rounded-xl
-font-semibold
-transition
-"
+          className="mt-4 bg-green-500 px-4 py-2 rounded-xl font-bold"
         >
   
           Export CSV
@@ -425,53 +466,46 @@ transition
       </div>
   
   
-      <div className="
-grid
-grid-cols-1
-md:grid-cols-2
-xl:grid-cols-4
-gap-6
-mt-8
-">
+      <div className="grid grid-cols-2 gap-4">
   
-        <StatCard
+        <StatsCard
           title="Total Rides"
           value={realtimeStats?.totalRides || 0}
         />
   
-        <StatCard
+        <StatsCard
           title="Customers"
           value={realtimeStats?.totalCustomers|| 0}
         />
   
-        <StatCard
+        <StatsCard
           title="Riders"
           value={realtimeStats?.totalRiders|| 0}
         />
   
-        <StatCard
+        <StatsCard
           title="Pending"
           value={realtimeStats?.pendingRides|| 0}
         />
   
-        <StatCard
+        <StatsCard
           title="Active"
           value={realtimeStats?.activeRides|| 0}
         />
   
-        <StatCard
+        <StatsCard
           title="Completed"
           value={realtimeStats?.completedRides|| 0}
         />
 
-        <StatCard
+        <StatsCard
         title="Cancelled"
         value={
             realtimeStats.cancelledRides
         }
         />
   
-        <StatCard
+        <StatsCard
           title="Revenue"
           value={`₹${realtimeStats?.totalRevenue|| 0}`}
         />

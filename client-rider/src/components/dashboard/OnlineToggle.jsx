@@ -1,9 +1,43 @@
-const OnlineToggle = () => {
-    return (
-      <button className="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold mb-6">
-        Online
-      </button>
-    );
+import { useState } from "react";
+
+const OnlineToggle = ({
+  online,
+  onToggle,
+}) => {
+
+  const [loading, setLoading] =
+    useState(false);
+
+  const handleClick = async () => {
+
+    setLoading(true);
+
+    await onToggle(!online);
+
+    setLoading(false);
   };
-  
-  export default OnlineToggle;
+
+  return (
+    <div className="bg-zinc-900 rounded-xl p-4 mb-6">
+
+      <button
+        onClick={handleClick}
+        disabled={loading}
+        className={`w-full py-3 rounded-lg font-semibold transition ${
+          online
+            ? "bg-green-500"
+            : "bg-red-500"
+        }`}
+      >
+        {loading
+          ? "Updating..."
+          : online
+          ? "Go Offline"
+          : "Go Online"}
+      </button>
+
+    </div>
+  );
+};
+
+export default OnlineToggle;

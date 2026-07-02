@@ -1,0 +1,21 @@
+{
+  "projects": {
+    "default": "bike-taxi-clone-v2"
+  },
+  "targets": {
+    "bike-taxi-clone-v2": {
+      "hosting": {
+        "user": [
+          "bike-taxi-user"
+        ],
+        "rider": [
+          "bike-taxi-rider"
+        ],
+        "admin": [
+          "bike-taxi-admin"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
