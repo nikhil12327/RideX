@@ -2,6 +2,20 @@
 
 **RideX** is a full-stack bike taxi booking platform built with three dedicated web applications for **Customers, Riders, and Administrators**. The platform uses Firebase and real-time Firestore services to manage rides, users, rider operations, payments, live tracking, and platform analytics.
 
+## 🎥 Project Demo
+
+### Customer App
+[▶ Watch Customer App Demo](YOUR_VIDEO_LINK)
+
+### Rider App
+[▶ Watch Rider App Demo](YOUR_VIDEO_LINK)
+
+### Admin Dashboard
+[▶ Watch Admin Dashboard Demo](YOUR_VIDEO_LINK)
+
+### Complete Project Demo
+[▶ Watch Full RideX Demo]([YOUR_VIDEO_LINK](https://youtu.be/NstOJvBgg3Q))
+
 ## Overview
 
 RideX provides an end-to-end ride-booking workflow:
