@@ -11,10 +11,10 @@
 [▶ Watch Rider App Demo](YOUR_VIDEO_LINK)
 
 ### Admin Dashboard
-[▶ Watch Admin Dashboard Demo](YOUR_VIDEO_LINK)
+[▶ Watch Admin Dashboard Demo](https://youtu.be/15lCwMEF9c8)
 
 ### Complete Project Demo
-[▶ Watch Full RideX Demo]([YOUR_VIDEO_LINK](https://youtu.be/NstOJvBgg3Q))
+[▶ Watch Full RideX Demo]([[YOUR_VIDEO_LINK](https://youtu.be/15lCwMEF9c8)])
 
 ## Overview
 
