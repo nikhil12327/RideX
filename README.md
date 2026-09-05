@@ -5,16 +5,16 @@
 ## 🎥 Project Demo
 
 ### Customer App
-[▶ Watch Customer App Demo](YOUR_VIDEO_LINK)
+[▶ Watch Customer App Demo](https://youtu.be/15lCwMEF9c8)
 
 ### Rider App
-[▶ Watch Rider App Demo](YOUR_VIDEO_LINK)
+[▶ Watch Rider App Demo](https://youtu.be/M-4PqwS7jWk)
 
 ### Admin Dashboard
-[▶ Watch Admin Dashboard Demo](https://youtu.be/15lCwMEF9c8)
+[▶ Watch Admin Dashboard Demo](https://youtu.be/AWmBpU6miHc)
 
 ### Complete Project Demo
-[▶ Watch Full RideX Demo]([[YOUR_VIDEO_LINK](https://youtu.be/15lCwMEF9c8)])
+[▶ Watch Full RideX Demo](https://youtu.be/NstOJvBgg3Q)
 
 ## Overview
 
